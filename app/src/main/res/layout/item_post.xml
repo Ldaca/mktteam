@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Created by Luis Davila on 5/05/21, 9:37 p. m.
+  ~ Copyright (c) 2021 . All rights reserved.
+  ~ Last modified 5/05/21, 9:37 p. m.
+  -->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/margin_normal"
+    android:layout_marginVertical="@dimen/margin_tiny"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="@dimen/common_radius"
+    app:cardElevation="@dimen/common_elevation">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_tiny">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mcv_cocktail"
+            android:layout_width="@dimen/home_image_size"
+            android:layout_height="@dimen/home_image_size"
+            android:layout_margin="@dimen/margin_normal"
+            android:visibility="gone"
+            app:cardCornerRadius="@dimen/common_radius"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_post"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                tools:src="@tools:sample/backgrounds/scenic"
+                tools:ignore="ContentDescription" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_normal"
+            android:ellipsize="end"
+            android:maxLines="4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Margarita con ingredientes: vodka, soda, limon" />
+
+        <TextView
+            android:id="@+id/date_time"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:gravity="end"
+            android:textSize="@dimen/text_size_tiny"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="11/05/2021" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

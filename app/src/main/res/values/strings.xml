@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Ready</string>
+    <string name="logo">logo</string>
+    <string name="mail">mail</string>
+    <string name="password">password</string>
+    <string name="log_in">Iniciar Sesión</string>
+    <string name="corp">corp</string>
+    <string name="logout">Cerrar Sesión</string>
+    <string name="default_web_clien_id" tools:ignore="TypographyDashes">380068908279-46fen5s6h70d7hd8oqq4bdla1nk7nght.apps.googleusercontent.com</string>
+    <string name="facebook_app_id">448756619796537</string>
+    <string name="fb_login_protocol_scheme">fb448756619796537</string>
+    <string name="cancel">Cancel</string>
+    <string name="publish">Publicar</string>
+    <string name="login">login</string>
+    <string name="whatsup">¿Que está pasando?</string>
+</resources>
