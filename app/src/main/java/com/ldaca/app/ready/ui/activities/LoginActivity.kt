@@ -54,7 +54,7 @@ class LoginActivity : AppCompatActivity() {
                     account?.let {
                         val credential = GoogleAuthProvider.getCredential(account.idToken, null)
                         auth.signInWithCredential(credential).addOnCompleteListener {
-                            Intent(this, MainActivity::class.java).apply {
+                            Intent(this, DetailActivity::class.java).apply {
                                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                 putExtra("email", account.email)
                                 startActivity(this)

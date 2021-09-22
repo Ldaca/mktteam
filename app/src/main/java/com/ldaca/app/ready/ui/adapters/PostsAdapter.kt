@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ldaca.app.ready.R
-import com.ldaca.app.ready.data.domain.Post
+import com.ldaca.app.ready.data.domain.Contact
 import com.ldaca.app.ready.databinding.ItemPostBinding
 
-class PostsAdapter(val listener: (Post)->Unit): ListAdapter<Post, PostsAdapter.ItemViewHolder>(DiffCallback()) {
+class PostsAdapter(val listener: (Contact)->Unit): ListAdapter<Contact, PostsAdapter.ItemViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         return ItemViewHolder(LayoutInflater.from(parent.context)
@@ -31,8 +31,7 @@ class PostsAdapter(val listener: (Post)->Unit): ListAdapter<Post, PostsAdapter.I
 
         private val binding = ItemPostBinding.bind(itemView)
 
-        fun bind(item: Post) = with(binding) {
-            description.text = item.message
+        fun bind(item: Contact) = with(binding) {
             dateTime.text = item.createAt
             if (item.imagePath.isNotEmpty()) {
                 Glide.with(itemView.context)
@@ -45,12 +44,12 @@ class PostsAdapter(val listener: (Post)->Unit): ListAdapter<Post, PostsAdapter.I
     }
 }
 
-class DiffCallback : DiffUtil.ItemCallback<Post>() {
-    override fun areItemsTheSame(oldItem: Post, newItem: Post): Boolean {
+class DiffCallback : DiffUtil.ItemCallback<Contact>() {
+    override fun areItemsTheSame(oldItem: Contact, newItem: Contact): Boolean {
         return oldItem.id == newItem.id
     }
 
-    override fun areContentsTheSame(oldItem: Post, newItem: Post): Boolean {
-        return oldItem.message == newItem.message
+    override fun areContentsTheSame(oldItem: Contact, newItem: Contact): Boolean {
+        return oldItem.id == newItem.id
     }
 }

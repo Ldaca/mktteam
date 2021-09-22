@@ -1,34 +1,51 @@
 package com.ldaca.app.ready.data
 
 
-import com.ldaca.app.ready.data.domain.Post
-import com.ldaca.app.ready.data.server.ServerPost
-import com.ldaca.app.ready.utils.Providers
-import com.ldaca.app.ready.data.db.Post as RoomPost
+import com.ldaca.app.ready.data.domain.Contact
+import com.ldaca.app.ready.data.server.ServerContact
+import com.ldaca.app.ready.data.db.Contact as RoomContact
 
-fun ServerPost.toDomainPost(): Post =
-    Post(
+fun ServerContact.toDomainContact(): Contact =
+    Contact(
         id,
+        alias,
+        firstName,
+        lastName,
+        tel1,
+        tel2,
+        address1,
+        address2,
+        enterprise,
         imagePath,
-        message,
-        createAt,
-        Providers.FACEBOOK.toString()
+        createAt
     )
 
-fun Post.toRoomPost(): RoomPost =
-    RoomPost(
+fun Contact.toRoomContact(): RoomContact =
+    RoomContact(
         id,
+        alias,
+        firstName,
+        lastName,
+        tel1,
+        tel2,
+        address1,
+        address2,
+        enterprise,
         imagePath,
-        message,
-        createAt,
-        Providers.FACEBOOK.toString()
+        createAt
     )
 
-fun RoomPost.toDomainPost(): Post =
-    Post(
+fun RoomContact.toDomainContact(): Contact =
+    Contact(
         id,
+        alias,
+        firstName,
+        lastName,
+        tel1,
+        tel2,
+        address1,
+        address2,
+        enterprise,
         imagePath,
-        message,
-        createAt,
-        Providers.FACEBOOK.toString()
+        createAt
     )

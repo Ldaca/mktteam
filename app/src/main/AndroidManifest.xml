@@ -13,7 +13,7 @@
         tools:ignore="ScopedStorage" />
 
     <application
-        android:name=".PostApp"
+        android:name=".ContactApp"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -23,7 +23,9 @@
         tools:ignore="AllowBackup">
         <activity
             android:name=".ui.activities.DetailActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"/>
         <activity
             android:name=".ui.activities.LoginActivity"
             android:screenOrientation="portrait"
@@ -32,7 +34,8 @@
             android:name=".ui.activities.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme"
-            tools:ignore="LockedOrientationActivity">
+            tools:ignore="LockedOrientationActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

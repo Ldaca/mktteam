@@ -3,12 +3,11 @@ package com.ldaca.app.ready.ui.viewmodels
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
-import com.ldaca.app.ready.data.domain.Post
+import com.ldaca.app.ready.data.domain.Contact
 import com.ldaca.app.ready.data.domain.Repo
 import com.ldaca.app.ready.data.server.Page
 import com.ldaca.app.ready.utils.Resource
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class MainViewModel @ViewModelInject constructor (private val repo: Repo) : ViewModel() {
 
@@ -32,44 +31,30 @@ class MainViewModel @ViewModelInject constructor (private val repo: Repo) : View
                 if (onLogin) {
                     emit(Resource.Loading())
                     try {
-                        val pages = repo.getPages(accessToken)
-                        if (pages.isNotEmpty()) {
-                            for (page in pages) {
-                                if (page.idPage == pageId) {
 
-                                }
-                            }
-                            emit(Resource.Success(repo.getPostsList(accessToken, provider, pageId)))
-                        }
-                        emit(Resource.Success(repo.getPostsList(accessToken, provider, pageId)))
+                        emit(Resource.Success(repo.getContacsList()))
                     } catch (e: Exception) {
                         emit(Resource.Failure(e))
                     }
                 } else {
-                    emit(Resource.Success(emptyList<Post>()))
+                    emit(Resource.Success(emptyList<Contact>()))
                 }
             }
         }
 
 
-    fun getPagesList(){
-        viewModelScope.launch {
-            _pageList.value = repo.getPages(accessToken)
-        }
-    }
-
-    fun onSavePost(provider: String, post: Post) = isLoggedIn.distinctUntilChanged().switchMap { onLogin ->
+    fun onSavePost(provider: String, contact: Contact) = isLoggedIn.distinctUntilChanged().switchMap { onLogin ->
         liveData(Dispatchers.IO) {
             if (onLogin) {
                 emit(Resource.Loading())
                 try {
-                    repo.savePost(post)
-                    emit(Resource.Success(repo.getPostsList(accessToken, provider, pageId)))
+                    repo.saveContact(contact)
+                    emit(Resource.Success(repo.getContacsList()))
                 } catch (e: Exception) {
                     emit(Resource.Failure(e))
                 }
             } else {
-                emit(Resource.Success(emptyList<Post>()))
+                emit(Resource.Success(emptyList<Contact>()))
             }
         }
     }

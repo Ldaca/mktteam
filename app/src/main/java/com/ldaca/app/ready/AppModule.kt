@@ -3,7 +3,7 @@ package com.ldaca.app.ready
 import android.content.Context
 import androidx.room.Room
 import com.google.gson.GsonBuilder
-import com.ldaca.app.ready.data.db.PostDatabase
+import com.ldaca.app.ready.data.db.ContactDatabase
 import com.ldaca.app.ready.data.server.ApiService
 import com.ldaca.app.ready.data.server.RetrofitBuilder.BASE_URL
 import dagger.Module
@@ -22,11 +22,11 @@ object AppModule {
     @Singleton
     @Provides
     fun provideRoomInstance(@ApplicationContext context: Context) =
-        Room.databaseBuilder(context, PostDatabase::class.java, "post-db").build()
+        Room.databaseBuilder(context, ContactDatabase::class.java, "post-db").build()
 
     @Singleton
     @Provides
-    fun providePostDao(db: PostDatabase) = db.postDao()
+    fun provideContactDao(db: ContactDatabase) = db.contactDao()
 
     @Singleton
     @Provides

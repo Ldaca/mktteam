@@ -22,4 +22,8 @@
     <dimen name="text_size_normal">20sp</dimen>
     <dimen name="text_size_small">16sp</dimen>
     <dimen name="text_size_tiny">10sp</dimen>
+
+
+    <dimen name="corner_button">5dp</dimen>
+    <dimen name="height_button">35dp</dimen>
 </resources>

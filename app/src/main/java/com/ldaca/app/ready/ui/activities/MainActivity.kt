@@ -10,7 +10,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.ldaca.app.ready.R
-import com.ldaca.app.ready.data.db.PostDao
+import com.ldaca.app.ready.data.db.ContactDao
 import com.ldaca.app.ready.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -18,7 +18,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     @Inject
-    lateinit var postDao: PostDao
+    lateinit var contactDao: ContactDao
     private lateinit var binding: ActivityMainBinding
     private lateinit var preferences: SharedPreferences
 
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         preferences = getSharedPreferences(getString(R.string.app_name), MODE_PRIVATE)
 
-        Log.i("postDao", "postDao: ${postDao.hashCode()}")
+        Log.i("postDao", "postDao: ${contactDao.hashCode()}")
 
     }
 

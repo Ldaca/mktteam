@@ -14,7 +14,7 @@ class SplashActivity : AppCompatActivity() {
         Thread.sleep(1000)
         val currentUser = auth.currentUser
         currentUser?.let {
-            Intent(this, MainActivity::class.java).apply {
+            Intent(this, DetailActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(this)
             }
